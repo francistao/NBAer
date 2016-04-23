@@ -3,7 +3,19 @@ package com.geniusvjr.nbaer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.geniusvjr.nbaer.ui.activity.BaseActivity;
+
+public class MainActivity extends BaseActivity {
+
+    @Override
+    protected void initViews() {
+
+    }
+
+    @Override
+    protected int getContentViewId() {
+        return 0;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

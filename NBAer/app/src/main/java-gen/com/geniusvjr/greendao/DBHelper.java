@@ -1,12 +1,13 @@
-package greendao;
+package com.geniusvjr.greendao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Config;
 
+import de.greenrobot.dao.query.QueryBuilder;
 
 /**
- * Created by SilenceDut on 2015/12/3.
+ * Created by dream on 16/4/23.
  */
 public class DBHelper {
 
@@ -35,6 +36,7 @@ public class DBHelper {
             QueryBuilder.LOG_VALUES = true;
         }
     }
+
     public DaoSession getDaoSession() {
         return daoSession;
     }
@@ -42,6 +44,4 @@ public class DBHelper {
     public SQLiteDatabase getDb() {
         return db;
     }
-
-
 }

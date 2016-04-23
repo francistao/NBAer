@@ -3,10 +3,13 @@ package com.geniusvjr.nbaer.app;
 import android.os.Handler;
 import android.os.HandlerThread;
 
+import com.geniusvjr.greendao.DBHelper;
+import com.geniusvjr.nbaer.network.NbaplusAPI;
 import com.google.gson.Gson;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
 
 import de.greenrobot.event.EventBus;
 import rx.subscriptions.CompositeSubscription;
@@ -19,7 +22,10 @@ public class AppService {
     private static final AppService NBAPLUS_SERVICE = new AppService();
     private static Gson sGson;
     private static EventBus sBus;
-    private static DBHelper
+    private static DBHelper sDBHelper;
+    private static NbaplusAPI sNbaplusApi;
+    private static ExecutorService sSingleThreadExecutor;
+
     private Map<Integer, CompositeSubscription> mCompositeSubByTaskId;
     private Handler mIoHandler;
 
@@ -51,6 +57,26 @@ public class AppService {
     public void addCompositeSub(int taskId)
     {
         CompositeSubscription compositeSubscription;
-
+        if(mCompositeSubByTaskId.get(taskId) == null)
+        {
+            compositeSubscription = new CompositeSubscription();
+            mCompositeSubByTaskId.put(taskId, compositeSubscription);
+        }
     }
+
+    public void removeCompositeSub(int taskId) {
+        CompositeSubscription compositeSubscription;
+        if(mCompositeSubByTaskId!=null&& mCompositeSubByTaskId.get(taskId)!=null){
+            compositeSubscription= mCompositeSubByTaskId.get(taskId);
+            compositeSubscription.unsubscribe();
+            mCompositeSubByTaskId.remove(taskId);
+        }
+    }
+    public static EventBus getBus()
+    {
+        return sBus;
+    }
+
+
+
 }
