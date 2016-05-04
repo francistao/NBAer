@@ -7,13 +7,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.geniusvjr.nbaer.R;
+import com.geniusvjr.nbaer.ui.activity.AboutActivity;
 
 import butterknife.Bind;
 
 /**
  * Created by dream on 16/4/30.
  */
-public abstract class ToorbarBaseFragment extends BaseFragment{
+public abstract class ToolbarBaseFragment extends BaseFragment{
 
     protected Toolbar mToolBar;
 
