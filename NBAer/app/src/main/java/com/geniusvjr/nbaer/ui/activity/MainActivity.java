@@ -46,6 +46,8 @@ public class MainActivity extends BaseActivity {
         mNavigationFragment.setUp(findViewById(R.id.main_content), R.id.navigation_drawer,
                 findViewById(R.id.main_drawer));
         initDrawerMap();
+        mCurrentFragment = getFragment(mFragmentNameByDrawerId.get(R.string.news));
+
     }
 
     private void initDrawerMap() {
