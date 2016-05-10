@@ -20,6 +20,9 @@ public class Constant {
 
 
 
+    public enum GETNEWSWAY {
+        INIT,UPDATE,LOADMORE;
+    }
 
     public enum Result{
         SUCCESS,FAIL,NOMAL

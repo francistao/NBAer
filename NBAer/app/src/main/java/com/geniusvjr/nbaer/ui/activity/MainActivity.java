@@ -47,7 +47,7 @@ public class MainActivity extends BaseActivity {
                 findViewById(R.id.main_drawer));
         initDrawerMap();
         mCurrentFragment = getFragment(mFragmentNameByDrawerId.get(R.string.news));
-
+        transactionSupportFragment(mCurrentFragment);
     }
 
     private void initDrawerMap() {
@@ -67,7 +67,21 @@ public class MainActivity extends BaseActivity {
             }
 
         }
-        return null;
+        return baseFragment;
     }
 
+
+
+    private void transactionSupportFragment(Fragment fragment){
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_content, fragment).commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(mNavigationFragment.isDrawerOpen()){
+            mNavigationFragment.closeDrawer();
+        }else {
+            finish();
+        }
+    }
 }
