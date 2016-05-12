@@ -6,9 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
     <include layout="@layout/appbar_toolbar"/>
-
     <android.support.v4.widget.SwipeRefreshLayout
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:id="@+id/swipeRefreshLayout"
@@ -23,6 +21,5 @@
             android:layout_height="match_parent"
             />
     </android.support.v4.widget.SwipeRefreshLayout>
-
-
 </android.support.design.widget.CoordinatorLayout>
+    <!--https://guides.codepath.com/android/Floating-Action-Buttons-->

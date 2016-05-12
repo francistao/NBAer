@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MotionEvent;
 import android.view.View;
 
+
 import com.geniusvjr.nbaer.R;
 import com.geniusvjr.nbaer.data.Constant;
 import com.geniusvjr.nbaer.event.NewsAnimatEndEvent;
@@ -22,23 +23,20 @@ import java.util.List;
 import butterknife.Bind;
 
 /**
- * Created by dream on 16/5/3.
+ * Created by SilenceDut on 2015/12/4.
  */
 public abstract class NewsFragment extends SwipeRefreshBaseFragment implements RecyclerViewLoadMoreListener.OnLoadMoreListener {
-
     @Bind(R.id.rv_news)
     RecyclerView mNewsListView;
     @Bind(R.id.newsContainer)
     CoordinatorLayout newsContainer;
 
+
     protected List<News.NewslistEntity> mNewsListEntity = new ArrayList<News.NewslistEntity>();
     protected LoadAdapter mLoadAdapter;
-    protected String mNewsId = "";
+    protected String mNewsId="";
 
-    @Override
-    protected int getTitle() {
-        return 0;
-    }
+    abstract void setAdapter();
 
     @Override
     protected void initViews() {
@@ -50,9 +48,9 @@ public abstract class NewsFragment extends SwipeRefreshBaseFragment implements R
                 new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
-                        if(mSwipeRefreshLayout.isRefreshing()){
+                        if (mSwipeRefreshLayout.isRefreshing()) {
                             return true;
-                        }else {
+                        } else {
                             return false;
                         }
                     }
@@ -61,38 +59,39 @@ public abstract class NewsFragment extends SwipeRefreshBaseFragment implements R
         setAdapter();
     }
 
-    protected void stopAll(){
+    protected void stopAll() {
         stopRefreshing();
         stopLoading();
     }
 
-    protected void stopLoading(){
+    protected void stopLoading() {
         mLoadAdapter.notifyItemChanged(mLoadAdapter.getItemCount() - 1);
         mLoadAdapter.setLoading(false);
     }
-
 
     @Override
     protected int getContentViewId() {
         return R.layout.fragment_main;
     }
 
-    protected  void updateView(NewsEvent newsEvent){
-        if(Constant.Result.FAIL.equals(newsEvent.getmEventResult())){
-            if(newsEvent.getNewsWay().equals(Constant.GETNEWSWAY.INIT)){
+
+    protected void updateView(NewsEvent newsEvent) {
+
+        if (Constant.Result.FAIL.equals(newsEvent.getEventResult())) {
+            if(newsEvent.getNewsWay().equals(Constant.GETNEWSWAY.INIT)) {
                 setRefreshing();
             }else {
                 stopAll();
                 AppUtils.showSnackBar(newsContainer, R.string.load_fail);
             }
-        }else {
+        } else {
             News news = newsEvent.getNews();
             mNewsId = news.getNextId();
-            switch (newsEvent.getNewsWay()){
+            switch (newsEvent.getNewsWay()) {
                 case INIT:
                     mNewsListEntity.clear();
                     mNewsListEntity.addAll(news.getNewslist());
-                break;
+                    break;
                 case UPDATE:
                     mNewsListEntity.clear();
                     mNewsListEntity.addAll(news.getNewslist());
@@ -108,14 +107,17 @@ public abstract class NewsFragment extends SwipeRefreshBaseFragment implements R
                     break;
             }
             mLoadAdapter.updateItem();
-            if(Constant.GETNEWSWAY.UPDATE.equals(newsEvent.getNewsWay())){
+            if (Constant.GETNEWSWAY.UPDATE.equals(newsEvent.getNewsWay())) {
                 AppUtils.showSnackBar(newsContainer, R.string.load_success);
             }
+
         }
+
+
     }
 
-    public void onEventMainThread(NewsAnimatEndEvent newsAnimatEndEvent){
+    public void onEventMainThread(NewsAnimatEndEvent newsAnimatEndEvent) {
         setRefreshing();
     }
-    abstract void setAdapter();
+
 }

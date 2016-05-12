@@ -8,6 +8,7 @@ import com.geniusvjr.greendao.DBHelper;
 import com.geniusvjr.nbaer.network.NbaplusAPI;
 import com.geniusvjr.nbaer.network.NbaplusFactory;
 import com.geniusvjr.nbaer.network.NewsDetileAPI;
+import com.geniusvjr.nbaer.rxmethod.RxNews;
 import com.google.gson.Gson;
 
 import java.util.HashMap;
@@ -86,22 +87,22 @@ public class AppService {
     }
 
 
-//    public void initNews(int taskId,String type) {
-//        getCompositeSubscription(taskId).add(RxNews.initNews(type));
-//    }
-//
-//    public void updateNews(int taskId,String type) {
-//        getCompositeSubscription(taskId).add(RxNews.updateNews(type));
-//    }
-//
-//    public void loadMoreNews(int taskId,String type,String newsId) {
-//        getCompositeSubscription(taskId).add(RxNews.loadMoreNews(type, newsId));
-//    }
-//
-//    public void getNewsDetile(int taskId,String date,String detielId) {
-//        getCompositeSubscription(taskId).add(RxNews.getNewsDetile(date, detielId));
-//    }
-//
+    public void initNews(int taskId,String type) {
+        getCompositeSubscription(taskId).add(RxNews.initNews(type));
+    }
+
+    public void updateNews(int taskId,String type) {
+        getCompositeSubscription(taskId).add(RxNews.updateNews(type));
+    }
+
+    public void loadMoreNews(int taskId,String type,String newsId) {
+        getCompositeSubscription(taskId).add(RxNews.loadMoreNews(type, newsId));
+    }
+
+    public void getNewsDetile(int taskId,String date,String detielId) {
+        getCompositeSubscription(taskId).add(RxNews.getNewsDetile(date, detielId));
+    }
+
 //    public void initPerStat(int taskId,String  statKind) {
 //        getCompositeSubscription(taskId).add(RxStats.initStat(statKind));
 //    }

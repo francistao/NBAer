@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/colorPrimary"
-              android:orientation="vertical">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/item_head">
-
+        android:id="@+id/item_head"
+        >
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignBottom="@+id/main_left_layout_info"
             android:src="@mipmap/main_left_header_bg"
             android:clickable="false"
-            />
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true" />
         <LinearLayout
             android:id="@+id/main_left_layout_info"
             android:layout_width="wrap_content"
@@ -27,14 +29,6 @@
             android:paddingRight="16dp"
             android:orientation="vertical">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/main_left_img_avatar"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:src="@mipmap/myteam"
-                app:civ_border_width="1dp"
-                app:civ_border_color="@color/white"
-                />
 
 
             <TextView
@@ -42,11 +36,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="14sp"
-                android:text="@string/my_team"
-                />
+                android:textSize="36sp"
+                android:text="@string/nba_fans" />
+
         </LinearLayout>
 
     </RelativeLayout>
@@ -56,7 +50,7 @@
         android:background="@android:color/transparent"
         android:scrollbars="none"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
+

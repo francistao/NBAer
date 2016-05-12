@@ -1,5 +1,6 @@
 package com.geniusvjr.nbaer.network;
 
+
 import com.geniusvjr.nbaer.model.Games;
 import com.geniusvjr.nbaer.model.News;
 import com.geniusvjr.nbaer.model.Statistics;
@@ -10,10 +11,9 @@ import retrofit2.http.Path;
 import rx.Observable;
 
 /**
- * Created by dream on 16/4/23.
+ * Created by SilenceDut on 2015/11/28.
  */
 public interface NbaplusAPI {
-
     @GET("api/v1.0/{type}/update")
     Observable<News> updateNews(@Path("type") String type);
     @GET("api/v1.0/{type}/loadmore/{newsId}")
@@ -24,4 +24,5 @@ public interface NbaplusAPI {
     Observable<Teams> getTeamSort();
     @GET("api/v1.0/gamesdate/{date}")
     Observable<Games> getGames(@Path("date") String date);
+
 }

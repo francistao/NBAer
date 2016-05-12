@@ -43,7 +43,7 @@ public class NewsDetileActivity extends SwipeBackActivity{
 
     public void onEventMainThread(NewsDetileEvent event){
         if(event != null){
-            if(Constant.Result.FAIL.equals(event.getmEventResult())){
+            if(Constant.Result.FAIL.equals(event.getEventResult())){
                 AppUtils.showSnackBar(mSwipeBackLayout, R.string.load_fail);
                 return;
             }

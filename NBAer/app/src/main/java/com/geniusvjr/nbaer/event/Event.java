@@ -3,17 +3,16 @@ package com.geniusvjr.nbaer.event;
 import com.geniusvjr.nbaer.data.Constant;
 
 /**
- * Created by dream on 16/4/23.
+ * Created by SilenceDut on 2015/11/28.
  */
 public class Event {
-
     protected Constant.Result mEventResult;
 
-    public Constant.Result getmEventResult() {
-        return mEventResult;
+    public void setEventResult(Constant.Result eventResult) {
+        this.mEventResult=eventResult;
     }
 
-    public void setmEventResult(Constant.Result mEventResult) {
-        this.mEventResult = mEventResult;
+    public Constant.Result getEventResult() {
+        return mEventResult;
     }
 }

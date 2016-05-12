@@ -3,12 +3,14 @@ package com.geniusvjr.nbaer.model;
 import java.util.Map;
 
 /**
- * Created by dream on 16/4/23.
+ * Created by SilenceDut on 2015/12/9.
  */
 public class NewsDetile {
 
     private String author;
+
     private Map<String,ContentImage> articleMediaMap;
+
     private String content;
 
     public String getAuthor() {
@@ -35,8 +37,7 @@ public class NewsDetile {
         this.content = content;
     }
 
-    public static class ContentImage
-    {
+    public static class ContentImage {
         String url;
         int id;
 
