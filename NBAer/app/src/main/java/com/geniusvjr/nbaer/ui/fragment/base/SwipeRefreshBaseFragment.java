@@ -2,16 +2,18 @@ package com.geniusvjr.nbaer.ui.fragment.base;
 
 import android.support.v4.widget.SwipeRefreshLayout;
 
+
 import com.geniusvjr.nbaer.R;
 
+import butterknife.Bind;
 
 /**
- * Created by dream on 16/4/30.
+ * Created by SilenceDut on 2015/11/28.
  */
-public abstract class SwipeRefreshBaseFragment extends ToolbarBaseFragment implements SwipeRefreshLayout.OnRefreshListener {
-
+public abstract class SwipeRefreshBaseFragment extends ToorbarBaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+    @Bind(R.id.swipeRefreshLayout)
     protected SwipeRefreshLayout mSwipeRefreshLayout;
-    protected void setRefreshing(){
+    protected void setRefreshing() {
         mSwipeRefreshLayout.post(new Runnable() {
             @Override
             public void run() {
@@ -21,22 +23,19 @@ public abstract class SwipeRefreshBaseFragment extends ToolbarBaseFragment imple
         });
     }
 
-    /**
-     * 是否刷新
-     * @return
-     */
-    protected boolean isRefreshing(){
+    protected boolean isRefreshing() {
         return mSwipeRefreshLayout.isRefreshing();
     }
 
-    protected void stopRefreshing(){
+    protected void stopRefreshing() {
         mSwipeRefreshLayout.setRefreshing(false);
     }
-
     @Override
     protected void initViews() {
         super.initViews();
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary, R.color.colorPrimaryLight);
     }
+
+
 }

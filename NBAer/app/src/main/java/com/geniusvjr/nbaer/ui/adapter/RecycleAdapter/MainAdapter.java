@@ -21,4 +21,9 @@ public class MainAdapter extends LoadAdapter{
     public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return null;
     }
+
+
+    protected void setAnimateEndCount(int animateEndCount){
+
+    }
 }

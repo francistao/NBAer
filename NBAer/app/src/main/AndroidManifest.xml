@@ -24,6 +24,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ui.activity.NewsDetileActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.TransparentActivity">
+
+        </activity>
+
+
         <meta-data android:value="3cc3405d811293a22ec506387c452a3d" android:name="BUG_HD_SDK_GENERAL_KEY" />
 
     </application>

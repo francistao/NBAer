@@ -6,51 +6,59 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+
 import com.geniusvjr.nbaer.R;
-import com.geniusvjr.nbaer.ui.activity.AboutActivity;
 
 import butterknife.Bind;
 
 /**
- * Created by dream on 16/4/30.
+ * Created by SlienceDut on 2015/12/12.
  */
-public abstract class ToolbarBaseFragment extends BaseFragment{
+public abstract class ToorbarBaseFragment extends BaseFragment {
+    @Bind(R.id.toolbar)
+    protected
+    Toolbar mToolBar;
 
-    protected Toolbar mToolBar;
 
-    protected  abstract int getTitle();
+    protected abstract int getTitle();
 
     @Override
     protected void initViews() {
         initToolbar();
         setHasOptionsMenu(true);
+
     }
 
-    private void initToolbar() {
+    protected void initToolbar() {
         ((AppCompatActivity)getActivity()).setSupportActionBar(mToolBar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getTitle());
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getTitle());
         mToolBar.setNavigationIcon(R.mipmap.ic_menu_white);
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_main,menu);
+        inflater.inflate(R.menu.menu_main, menu);
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action fragment_bar item clicks here. The action fragment_bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        switch (id){
-            case R.id.about:
-
+        switch (id) {
+            case R.id.about :
+//                AboutActivity.navigateFrom(getActivity());
                 break;
             case R.id.setting:
+//                SettingsActivity.navigateFrom(getActivity());
                 break;
-            default:
-                break;
+            default:break;
+
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }

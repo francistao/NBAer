@@ -20,8 +20,8 @@ public abstract class BaseActivity extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getContentViewId());
-//        AppService.getInstance().addCompositeSub(getTaskId());
-//        AppService.getInstance().getBus().register(this);
+        AppService.getInstance().addCompositeSub(getTaskId());
+        AppService.getInstance().getBus().register(this);
         ButterKnife.bind(this);
         initViews();
     }
@@ -29,7 +29,7 @@ public abstract class BaseActivity extends AppCompatActivity{
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        AppService.getInstance().removeCompositeSub(getTaskId());
-//        AppService.getInstance().getBus().unregister(this);
+        AppService.getInstance().removeCompositeSub(getTaskId());
+        AppService.getInstance().getBus().unregister(this);
     }
 }

@@ -14,9 +14,10 @@ import butterknife.Bind;
  */
 public abstract class SwipeBackActivity extends BaseActivity{
 
-//    @Bind(R.id.swipBackLayout)
+    @Bind(R.id.swipBackLayout)
     SwipeBackLayout mSwipeBackLayout;
 
+    @Bind(R.id.toolbar)
     Toolbar mToolbar;
 
     abstract void setTitle();

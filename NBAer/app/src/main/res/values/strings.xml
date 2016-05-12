@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NBAer</string>
+    <string name="app_name">NBA爱好者</string>
     <string name="firstTab">精选</string>
     <string name="secondTab">推荐</string>
     <string name="thirdTab">更多</string>

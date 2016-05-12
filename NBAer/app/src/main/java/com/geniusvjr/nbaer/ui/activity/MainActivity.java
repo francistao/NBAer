@@ -70,6 +70,19 @@ public class MainActivity extends BaseActivity {
         return baseFragment;
     }
 
+    public void onEventMainThread(DrawerClickEvent drawerClickEvent) {
+        if(Constant.Result.FAIL.equals(drawerClickEvent.getmEventResult())||drawerClickEvent.getDrawId()==mCurrentDrawId) {
+            return;
+        }
+        mCurrentDrawId=drawerClickEvent.getDrawId();
+        if(mCurrentDrawId==R.string.statistics) {
+//            mCurrentFragment=StatisticsFragment.newInstance();
+        }else {
+            mCurrentFragment = getFragment(mFragmentNameByDrawerId.get(mCurrentDrawId));
+        }
+        transactionSupportFragment(mCurrentFragment);
+    }
+
 
 
     private void transactionSupportFragment(Fragment fragment){
