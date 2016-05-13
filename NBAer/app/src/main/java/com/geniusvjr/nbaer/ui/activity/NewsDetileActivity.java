@@ -90,6 +90,16 @@ public class NewsDetileActivity extends SwipeBackActivity{
     }
 
     private void getNewsDetile(){
-//        AppService.getInstance().get(getTaskId(), mGetIntent.getStringExtra(DETILE_DATE), mGetIntent.getStringExtra(DETILE_ID));
+        AppService.getInstance().getNewsDetile(getTaskId(), mGetIntent.getStringExtra(DETILE_DATE), mGetIntent.getStringExtra(DETILE_ID));
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mWebLayout != null){
+            mWebView.removeAllViews();
+            mWebView.destroy();
+        }
     }
 }
