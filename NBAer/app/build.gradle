@@ -52,4 +52,5 @@ dependencies {
     compile files('libs/joda-time-2.8.2.jar')
     compile 'de.hdodenhof:circleimageview:2.0.0'
     compile 'com.thefinestartist:finestwebview:1.2.7'
+    compile 'com.brucetoo.pickview:library:1.1.1'
 }

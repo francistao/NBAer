@@ -1,5 +1,6 @@
 package com.geniusvjr.nbaer.ui.adapter.RecycleAdapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
@@ -26,23 +27,22 @@ import butterknife.ButterKnife;
  */
 public class TeamSortAdapter extends RecyclerView.Adapter<TeamSortAdapter.TeamHolder>{
 
-    private final Map<String, Integer> teamIconMap = Constant.getTeamIcons();
+    private final Map<String,Integer> teamIconMap= Constant.getTeamIcons();
     private List<Teams.TeamsortEntity> mTeams;
     protected Context mContext;
     protected LayoutInflater mInflater;
-    private static final int TEAMS_TITLE = 0;
-    private static final int TEAMS_ENTITY = 1;
-
-    public TeamSortAdapter(Context context, List<Teams.TeamsortEntity> teams) {
+    private static final int TEAMS_TITLE=0;
+    private static final int TEAMS_ENTITY=1;
+    public TeamSortAdapter(Context context,List<Teams.TeamsortEntity> teams) {
         super();
         this.mContext = context;
-        this.mTeams = teams;
+        this.mTeams=teams;
         mInflater = LayoutInflater.from(context);
     }
 
     @Override
     public int getItemViewType(int position) {
-        if(position % 17 == 0){
+        if(position%17==0) {
             return TEAMS_TITLE;
         }else {
             return TEAMS_ENTITY;
@@ -68,10 +68,13 @@ public class TeamSortAdapter extends RecyclerView.Adapter<TeamSortAdapter.TeamHo
 
     @Override
     public int getItemCount() {
-        return mTeams == null ? 0 : mTeams.size() + 2;
+
+        return mTeams==null?0:mTeams.size()+2;
     }
 
-    abstract class TeamHolder extends RecyclerView.ViewHolder{
+
+
+    abstract class TeamHolder extends RecyclerView.ViewHolder {
 
         public TeamHolder(View itemView) {
             super(itemView);
@@ -81,32 +84,28 @@ public class TeamSortAdapter extends RecyclerView.Adapter<TeamSortAdapter.TeamHo
         abstract void updateItem(int position);
     }
 
-    class TeamTitle extends TeamHolder{
-
+    class TeamTitle extends TeamHolder {
         @Bind(R.id.teams_title)
         TextView mTeamTitle_tv;
-
         public TeamTitle(View itemView) {
             super(itemView);
         }
 
         @Override
         void updateItem(int position) {
-            if(mTeams == null || mTeams.size() == 0){
+            if(mTeams==null||mTeams.size()==0){
                 return;
             }
-            if(position == 0){
+            if(position==0) {
                 mTeamTitle_tv.setText("东部球队");
             }else {
                 mTeamTitle_tv.setText("西部球队");
             }
+
         }
     }
 
-
-
-    class TeamEntity extends TeamHolder implements View.OnClickListener {
-
+    class TeamEntity extends TeamHolder implements View.OnClickListener{
         @Bind(R.id.place)
         TextView mTeamPlace_tv;
         @Bind(R.id.team_icon)
@@ -130,19 +129,18 @@ public class TeamSortAdapter extends RecyclerView.Adapter<TeamSortAdapter.TeamHo
             super(itemView);
             mItemLayout.setOnClickListener(this);
         }
-
         @Override
         void updateItem(int position) {
-            if(mTeams == null || mTeams.size() == 0){
+            if(mTeams==null||mTeams.size()==0){
                 return;
             }
-            int index = 0;
-            if(position > 17){
-                index = position - 2;
-            }else if(position > 0){
-                index = position - 1;
+            int index=0;
+            if(position>17) {
+                index=position-2;
+            }else if(position>0){
+                index=position-1;
             }
-            mTeam = mTeams.get(index);
+            mTeam=mTeams.get(index);
             mTeamPlace_tv.setText(mTeam.getSort());
 
             mTeamName_tv.setText(mTeam.getTeam());
@@ -150,12 +148,12 @@ public class TeamSortAdapter extends RecyclerView.Adapter<TeamSortAdapter.TeamHo
             mTeamLose_tv.setText(mTeam.getLose());
             mTeamWinPer_tv.setText(mTeam.getWinPercent());
             mTeamGap_tv.setText(mTeam.getGap());
-
-            if(index == 0 || index == 16){
+            if(index==0||index==16) {
                 mTeamPlace_tv.setText("");
                 divider.setVisibility(View.VISIBLE);
                 mTeamicon_IV.setVisibility(View.INVISIBLE);
                 mTeam=null;
+
             }else {
                 mTeamicon_IV.setVisibility(View.VISIBLE);
                 mTeamicon_IV.setImageResource(teamIconMap.get(mTeam.getTeam()));
@@ -167,19 +165,17 @@ public class TeamSortAdapter extends RecyclerView.Adapter<TeamSortAdapter.TeamHo
             }else {
                 mTeamPlace_tv.setTextColor(Color.parseColor("#212121"));
             }
-
         }
 
         @Override
-        public void onClick(View v) {
-
-            if(mTeam == null){
+        public void onClick(View view) {
+            if(mTeam==null) {
                 return;
             }
-            new FinestWebView.Builder(mContext)
+            new FinestWebView.Builder((Activity)mContext)
                     .gradientDivider(false)
                     .show(mTeam.getTeamurl());
-
         }
     }
+
 }

@@ -57,7 +57,6 @@ public class TeamSortFragment extends SwipeRefreshBaseFragment{
         mTeamsSortEntity.clear();
         mTeamsSortEntity.addAll(teamSortEvent.getmTeams().getTeamsort());
         mTeamListView.setAdapter(mTeamSortAdapter);
-        setRefreshing();
     }
     @Override
     protected int getTitle() {
