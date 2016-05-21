@@ -11,8 +11,6 @@ import com.geniusvjr.nbaer.ui.adapter.RecycleAdapter.BlogAdapter;
  * Created by SilenceDut on 2015/12/4.
  */
 public class BlogFragment extends NewsFragment {
-
-
     private static boolean mFirstAnimate=true;
     public static BlogFragment newInstance() {
         BlogFragment blogFragment = new BlogFragment();
@@ -60,4 +58,5 @@ public class BlogFragment extends NewsFragment {
     }
 
 }
+
 

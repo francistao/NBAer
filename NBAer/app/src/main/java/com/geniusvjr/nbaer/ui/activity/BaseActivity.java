@@ -11,13 +11,13 @@ import butterknife.ButterKnife;
 /**
  * Created by dream on 16/4/23.
  */
-public abstract class BaseActivity extends AppCompatActivity{
+public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract void initViews();
     protected abstract int getContentViewId();
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getContentViewId());
         AppService.getInstance().addCompositeSub(getTaskId());

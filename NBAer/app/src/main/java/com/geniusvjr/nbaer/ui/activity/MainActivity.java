@@ -19,9 +19,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends BaseActivity {
+
     private DrawerFragment mNavigationFragment;
     private BaseFragment mCurrentFragment;
-    private int mCurrentDrawId= R.string.news;
+    private int mCurrentDrawId=R.string.news;
     private Map<String,BaseFragment> mBaseFragmentByName= new HashMap<>();
     private Map<Integer,String> mFragmentNameByDrawerId = new HashMap<>();
 
