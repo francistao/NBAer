@@ -14,6 +14,7 @@ import com.geniusvjr.nbaer.ui.fragment.GamesFragment;
 import com.geniusvjr.nbaer.ui.fragment.MainFragment;
 import com.geniusvjr.nbaer.ui.fragment.TeamSortFragment;
 import com.geniusvjr.nbaer.ui.fragment.base.BaseFragment;
+import com.geniusvjr.nbaer.ui.fragment.playersort.StatisticsFragment;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -51,7 +52,7 @@ public class MainActivity extends BaseActivity {
         }
         mCurrentDrawId=drawerClickEvent.getDrawId();
         if(mCurrentDrawId==R.string.statistics) {
-//            mCurrentFragment=StatisticsFragment.newInstance();
+            mCurrentFragment= StatisticsFragment.newInstance();
         }else {
             mCurrentFragment = getFragment(mFragmentNameByDrawerId.get(mCurrentDrawId));
         }

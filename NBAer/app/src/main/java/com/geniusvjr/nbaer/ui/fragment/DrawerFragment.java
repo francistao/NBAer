@@ -61,12 +61,7 @@ public class DrawerFragment extends BaseFragment {
         DrawerAdapter drawerAdapter = new DrawerAdapter(getActivity());
         mDrawerRv.setLayoutManager(linearLayoutManager);
         mDrawerRv.setAdapter(drawerAdapter);
-        head.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
     }
 
 

@@ -10,6 +10,7 @@ import com.geniusvjr.nbaer.network.NbaplusFactory;
 import com.geniusvjr.nbaer.network.NewsDetileAPI;
 import com.geniusvjr.nbaer.rxmethod.RxGames;
 import com.geniusvjr.nbaer.rxmethod.RxNews;
+import com.geniusvjr.nbaer.rxmethod.RxStats;
 import com.geniusvjr.nbaer.rxmethod.RxTeamSort;
 import com.google.gson.Gson;
 
@@ -106,18 +107,18 @@ public class AppService {
         getCompositeSubscription(taskId).add(RxNews.getNewsDetile(date, detielId));
     }
 
-//    public void initPerStat(int taskId,String  statKind) {
-//        getCompositeSubscription(taskId).add(RxStats.initStat(statKind));
-//    }
-//
-//    public void getPerStat(int taskId,String ...statKinds) {
-//        getCompositeSubscription(taskId).add(RxStats.getPerStat(statKinds));
-//    }
-//
+    public void initPerStat(int taskId,String  statKind) {
+        getCompositeSubscription(taskId).add(RxStats.initStat(statKind));
+    }
+
+    public void getPerStat(int taskId,String ...statKinds) {
+        getCompositeSubscription(taskId).add(RxStats.getPerStat(statKinds));
+    }
+
     public void getTeamSort(int taskId) {
         getCompositeSubscription(taskId).add(RxTeamSort.getTeams());
     }
-//
+
     public void getGames(int taskId,String date) {
         getCompositeSubscription(taskId).add(RxGames.getTeams(date));
     }
