@@ -1,16 +1,14 @@
 package com.geniusvjr.nbaer.event;
 
 /**
- * Created by dream on 16/5/10.
+ * Created by SilenceDut on 2015/12/9.
  */
-public class NewsDetileEvent extends Event{
+public class NewsDetileEvent extends Event {
     private String mNewsContent;
-
-    public NewsDetileEvent(String mNewsContent) {
-        this.mNewsContent = mNewsContent;
+    public NewsDetileEvent(String newsContent) {
+        this.mNewsContent=newsContent;
     }
-
-    public String getContent(){
+    public String getContent() {
         return mNewsContent;
     }
 }

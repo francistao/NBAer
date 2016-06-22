@@ -1,18 +1,17 @@
 package com.geniusvjr.nbaer.event;
 
+
 import com.geniusvjr.nbaer.data.Constant;
 
 /**
- * Created by dream on 16/5/21.
+ * Created by SilenceDut on 2015/12/18.
  */
-public class StatEvent extends Event{
-
+public class StatEvent extends Event {
     private String mStatKind;
     private String[][] mLables;
     private String[][] mPlayerUrls;
     private float[][] mStatValues;
     private Constant.GETNEWSWAY getNewsWay;
-
     public StatEvent (String statKind,String[][] lables,float[][] statValues,String[][] playerUrls) {
         this.mStatKind=statKind;
         this.mLables=lables;

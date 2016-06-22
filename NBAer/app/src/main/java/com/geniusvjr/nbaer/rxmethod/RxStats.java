@@ -2,6 +2,7 @@ package com.geniusvjr.nbaer.rxmethod;
 
 import android.util.Log;
 
+
 import com.geniusvjr.greendao.GreenStat;
 import com.geniusvjr.greendao.GreenStatDao;
 import com.geniusvjr.nbaer.app.AppService;
@@ -21,7 +22,7 @@ import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by dream on 16/5/13.
+ * Created by asan on 2015/12/15.
  */
 public class RxStats {
     public static Subscription getPerStat(String ...statKinds) {
@@ -57,7 +58,7 @@ public class RxStats {
 
                     }
                 });
-        return subscription;
+                return subscription;
     }
 
     public static Subscription initStat(final String statKind) {

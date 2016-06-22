@@ -1,5 +1,6 @@
 package com.geniusvjr.nbaer.rxmethod;
 
+
 import com.geniusvjr.nbaer.app.AppService;
 import com.geniusvjr.nbaer.data.Constant;
 import com.geniusvjr.nbaer.event.GamesEvent;
@@ -11,11 +12,10 @@ import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by dream on 16/5/12.
+ * Created by SilenceDut on 2015/12/26.
  */
 public class RxGames {
-
-    public static Subscription getTeams(String date){
+    public static Subscription getTeams(String date) {
 
         Subscription subscription = AppService.getNbaplus().getGames(date)
                 .subscribeOn(Schedulers.io())

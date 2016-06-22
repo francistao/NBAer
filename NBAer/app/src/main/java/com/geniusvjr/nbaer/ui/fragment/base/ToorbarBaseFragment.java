@@ -9,6 +9,7 @@ import android.view.MenuItem;
 
 import com.geniusvjr.nbaer.R;
 import com.geniusvjr.nbaer.ui.activity.AboutActivity;
+import com.geniusvjr.nbaer.ui.activity.SettingsActivity;
 
 import butterknife.Bind;
 
@@ -31,7 +32,7 @@ public abstract class ToorbarBaseFragment extends BaseFragment {
     }
 
     protected void initToolbar() {
-        ((AppCompatActivity)getActivity()).setSupportActionBar(mToolBar);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(mToolBar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getTitle());
         mToolBar.setNavigationIcon(R.mipmap.ic_menu_white);
     }
@@ -49,13 +50,14 @@ public abstract class ToorbarBaseFragment extends BaseFragment {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         switch (id) {
-            case R.id.about :
+            case R.id.about:
                 AboutActivity.navigateFrom(getActivity());
                 break;
             case R.id.setting:
-//                SettingsActivity.navigateFrom(getActivity());
+                SettingsActivity.navigateFrom(getActivity());
                 break;
-            default:break;
+            default:
+                break;
 
         }
         return super.onOptionsItemSelected(item);

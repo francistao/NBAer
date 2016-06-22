@@ -22,9 +22,6 @@ import java.util.List;
 
 import butterknife.Bind;
 
-/**
- * Created by SilenceDut on 2015/12/4.
- */
 public abstract class NewsFragment extends SwipeRefreshBaseFragment implements RecyclerViewLoadMoreListener.OnLoadMoreListener {
     @Bind(R.id.rv_news)
     RecyclerView mNewsListView;
@@ -116,8 +113,10 @@ public abstract class NewsFragment extends SwipeRefreshBaseFragment implements R
 
     }
 
+
     public void onEventMainThread(NewsAnimatEndEvent newsAnimatEndEvent) {
         setRefreshing();
     }
+
 
 }

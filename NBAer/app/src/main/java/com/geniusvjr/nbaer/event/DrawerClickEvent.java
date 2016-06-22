@@ -1,9 +1,9 @@
 package com.geniusvjr.nbaer.event;
 
 /**
- * Created by dream on 16/4/23.
+ * Created by SilenceDut on 2015/11/28.
  */
-public class DrawerClickEvent extends Event{
+public class DrawerClickEvent extends Event {
 
     private int drawId;
 

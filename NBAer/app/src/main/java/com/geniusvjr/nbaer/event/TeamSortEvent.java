@@ -9,7 +9,7 @@ import com.geniusvjr.nbaer.model.Teams;
  */
 public class TeamSortEvent extends Event {
     private Teams mTeams;
-    public TeamSortEvent(Teams teams, Constant.Result result) {
+    public TeamSortEvent(Teams teams,Constant.Result result) {
         this.mTeams=teams;
         this.mEventResult=result;
     }

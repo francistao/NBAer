@@ -3,7 +3,6 @@ package com.geniusvjr.nbaer.ui.fragment;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 
 
@@ -16,9 +15,6 @@ import com.geniusvjr.nbaer.utils.NumericalUtil;
 
 import butterknife.Bind;
 
-/**
- * Created by SilenceDut on 2015/11/28.
- */
 public class MainFragment extends NewsFragment{
 
     private static final int ANIM_DURATION_TOOLBAR = 300;
@@ -26,13 +22,7 @@ public class MainFragment extends NewsFragment{
     @Bind(R.id.mian_title)
     View mainTitle;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
     public static MainFragment newInstance() {
-
         MainFragment mainFragment = new MainFragment();
         return mainFragment;
     }
@@ -51,13 +41,11 @@ public class MainFragment extends NewsFragment{
             initCaChe();
         }
     }
-    private void initCaChe() {
-//        AppService.getInstance().initNews(getTaskId(), Constant.NEWSTYPE.NEWS.getNewsType());
-    }
+
 
     @Override
     public void onRefresh() {
-//        AppService.getInstance().updateNews(getTaskId(), Constant.NEWSTYPE.NEWS.getNewsType());
+        AppService.getInstance().updateNews(getTaskId(), Constant.NEWSTYPE.NEWS.getNewsType());
     }
 
 
@@ -66,14 +54,13 @@ public class MainFragment extends NewsFragment{
         if (mLoadAdapter.canLoadMore()) {
             mLoadAdapter.setLoading(true);
             mLoadAdapter.notifyItemChanged(mLoadAdapter.getItemCount() - 1);
-//            AppService.getInstance().loadMoreNews(getTaskId(),Constant.NEWSTYPE.NEWS.getNewsType(), mNewsId);
+            AppService.getInstance().loadMoreNews(getTaskId(),Constant.NEWSTYPE.NEWS.getNewsType(), mNewsId);
         }
     }
 
 
     public void onEventMainThread(NewsEvent newsEvent) {
-        if(newsEvent!=null&&Constant.NEWSTYPE.NEWS.getNewsType().equals(newsEvent.getNewsType())) {
-
+        if(newsEvent!=null && Constant.NEWSTYPE.NEWS.getNewsType().equals(newsEvent.getNewsType())) {
             updateView(newsEvent);
         }
     }
@@ -105,6 +92,10 @@ public class MainFragment extends NewsFragment{
                         initCaChe();
                     }
                 }).start();
+    }
+
+    private void initCaChe() {
+        AppService.getInstance().initNews(getTaskId(), Constant.NEWSTYPE.NEWS.getNewsType());
     }
 
 }

@@ -111,7 +111,9 @@ public class DrawerFragment extends BaseFragment {
                 super.onDrawerSlide(drawerView, slideOffset);
                 if (Build.VERSION.SDK_INT > 16) {
                     if (mBitmap != null) {
-                        bitmap = Bitmap.createBitmap(mBitmap, 0, 0, (int) (mBitmap.getWidth() * slideOffset) > 0 ? (int) (mBitmap.getWidth() * slideOffset) : 1, mBitmap.getHeight());
+                        bitmap = Bitmap.createBitmap(mBitmap, 0, 0,
+                                (int) (mBitmap.getWidth() * slideOffset) > 0 ? (int) (mBitmap.getWidth()
+                                        * slideOffset) : 1, mBitmap.getHeight());
                         BitmapDrawable bd;
                         bd = new BitmapDrawable(bitmap);
                         drawerView.setBackground(bd);

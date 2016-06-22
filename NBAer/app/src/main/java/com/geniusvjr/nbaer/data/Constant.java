@@ -22,6 +22,7 @@ public class Constant {
     public final static String[] TEAM_NAMES={"骑士","猛龙","老鹰","步行者","热火","活塞","公牛","魔术"
             ,"黄蜂","凯尔特人","尼克斯","奇才","雄鹿","篮网","76人","勇士","马刺","雷霆","快船","小牛"
             ,"灰熊","火箭","爵士","太阳","掘金","森林狼","国王","开拓者","鹈鹕","湖人"};
+
     public final static int[] TEAM_ICONS={R.mipmap.cleveland,R.mipmap.toronto,R.mipmap.atlanta,R.mipmap.indiana
             , R.mipmap.miami,R.mipmap.detroit,R.mipmap.chicago,R.mipmap.orlando,R.mipmap.charlotte,R.mipmap.boston
             ,R.mipmap.newyork,R.mipmap.washington,R.mipmap.milwaukee,R.mipmap.brooklyn,R.mipmap.phila,R.mipmap.goldenstate

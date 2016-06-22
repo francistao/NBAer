@@ -1,7 +1,7 @@
 package com.geniusvjr.nbaer.event;
 
 /**
- * Created by dream on 16/5/5.
+ * Created by SilenceDut on 2015/12/9.
  */
 public class NewsAnimatEndEvent extends Event{
 }

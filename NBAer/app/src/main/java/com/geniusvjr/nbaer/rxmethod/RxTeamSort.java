@@ -1,5 +1,6 @@
 package com.geniusvjr.nbaer.rxmethod;
 
+
 import com.geniusvjr.nbaer.app.AppService;
 import com.geniusvjr.nbaer.data.Constant;
 import com.geniusvjr.nbaer.event.TeamSortEvent;
@@ -11,11 +12,10 @@ import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by dream on 16/5/12.
+ * Created by SlienceDut on 2015/12/23.
  */
 public class RxTeamSort {
-
-    public static Subscription getTeams(){
+    public static Subscription getTeams() {
         Subscription subscription = AppService.getNbaplus().getTeamSort()
                 .subscribeOn(Schedulers.io())
                 .doOnNext(new Action1<Teams>() {
@@ -26,7 +26,6 @@ public class RxTeamSort {
                 })
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<Teams>() {
-
                     @Override
                     public void call(Teams news) {
                         AppService.getBus().post(new TeamSortEvent(news, Constant.Result.SUCCESS));
@@ -44,3 +43,4 @@ public class RxTeamSort {
 
     }
 }
+

@@ -18,13 +18,15 @@
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:layout_scrollFlags="scroll|enterAlways"
         >
-        <ImageView
+        <TextView
             android:id="@+id/mian_title"
-            android:layout_width="150dp"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:visibility="invisible"
-            android:src="@mipmap/icon_title"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
+            android:text="NBAFans"
             android:scaleType="fitCenter"
             />
     </android.support.v7.widget.Toolbar>

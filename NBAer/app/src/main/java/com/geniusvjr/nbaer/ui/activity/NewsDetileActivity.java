@@ -21,8 +21,6 @@ import butterknife.Bind;
  * Created by dream on 16/5/5.
  */
 public class NewsDetileActivity extends SwipeBackActivity{
-
-
     @Bind(R.id.webLayout)
     FrameLayout mWebLayout;
     WebView mWebView;
@@ -41,9 +39,9 @@ public class NewsDetileActivity extends SwipeBackActivity{
         return hasTitleImage()? R.layout.activity_detail : R.layout.activity_detile_noimage;
     }
 
-    public void onEventMainThread(NewsDetileEvent event){
-        if(event != null){
-            if(Constant.Result.FAIL.equals(event.getEventResult())){
+    public void onEventMainThread(NewsDetileEvent event) {
+        if(event!=null) {
+            if(Constant.Result.FAIL.equals(event.getEventResult())) {
                 AppUtils.showSnackBar(mSwipeBackLayout, R.string.load_fail);
                 return;
             }
@@ -51,7 +49,8 @@ public class NewsDetileActivity extends SwipeBackActivity{
         }
     }
 
-    private boolean hasTitleImage(){
+
+    private boolean hasTitleImage() {
         return getIntent().getBooleanExtra(IMAGE_EXIST, false);
     }
 
@@ -59,12 +58,12 @@ public class NewsDetileActivity extends SwipeBackActivity{
     void setTitle() {
         mToolbar.setTitle(R.string.app_name);
     }
-
     @Override
     protected void initViews() {
         super.initViews();
-        mGetIntent = getIntent();
-        if(hasTitleImage()){
+        mGetIntent=getIntent();
+        if(hasTitleImage()) {
+
             mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_layout);
             mCollapsingToolbarLayout.setTitle(mGetIntent.getStringExtra(TITLE));
             mTitleImage = (ImageView)findViewById(R.id.titleImage);
@@ -72,19 +71,20 @@ public class NewsDetileActivity extends SwipeBackActivity{
                 @Override
                 public void run() {
                     Glide.with(NewsDetileActivity.this).load(mGetIntent.getStringExtra(IMAGE_URL))
-                    .placeholder(R.color.colorPrimary)
-                    .into(mTitleImage);
-
+                            .placeholder(R.color.colorPrimary)
+                            .into(mTitleImage);
                 }
             });
-        }else{
+
+        } else {
             mToolbar.setBackgroundResource(R.color.colorPrimary);
+
         }
         mWebView = new WebView(getApplicationContext());
         mWebView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.setBackgroundColor(0);
-        mWebView.addView(mWebView);
+        mWebLayout.addView(mWebView);
 
         getNewsDetile();
     }
@@ -93,13 +93,13 @@ public class NewsDetileActivity extends SwipeBackActivity{
         AppService.getInstance().getNewsDetile(getTaskId(), mGetIntent.getStringExtra(DETILE_DATE), mGetIntent.getStringExtra(DETILE_ID));
     }
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(mWebLayout != null){
-            mWebView.removeAllViews();
+        if(mWebLayout!=null) {
+            mWebLayout.removeAllViews();
             mWebView.destroy();
         }
     }
 }
+

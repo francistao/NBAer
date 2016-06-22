@@ -27,9 +27,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-/**
- * Created by SilenceDut on 2015/12/4.
- */
+
 public abstract class LoadAdapter extends RecyclerView.Adapter<LoadAdapter.BaseViewHolder>{
 
 

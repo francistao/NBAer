@@ -15,6 +15,7 @@
         android:layout_height="match_parent"/>
 
     <fragment
+
         android:id="@+id/navigation_drawer"
         android:name="com.geniusvjr.nbaer.ui.fragment.DrawerFragment"
         android:layout_width="match_parent"

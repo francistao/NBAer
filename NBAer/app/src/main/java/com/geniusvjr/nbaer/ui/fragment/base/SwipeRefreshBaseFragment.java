@@ -13,6 +13,8 @@ import butterknife.Bind;
 public abstract class SwipeRefreshBaseFragment extends ToorbarBaseFragment implements SwipeRefreshLayout.OnRefreshListener {
     @Bind(R.id.swipeRefreshLayout)
     protected SwipeRefreshLayout mSwipeRefreshLayout;
+
+
     protected void setRefreshing() {
         mSwipeRefreshLayout.post(new Runnable() {
             @Override

@@ -152,6 +152,11 @@ public class RxNews {
         return subscription;
     }
 
+    /**
+     * 缓存新闻内容
+     * @param news
+     * @param newsType
+     */
     public static void cacheNews(final News news,final String newsType) {
 
         GreenNewsDao greenNewsDao = AppService.getDBHelper().getDaoSession().getGreenNewsDao();

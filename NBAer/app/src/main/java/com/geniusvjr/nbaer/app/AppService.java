@@ -26,14 +26,13 @@ import rx.subscriptions.CompositeSubscription;
  * Created by SilenceDut on 2015/11/28.
  */
 public class AppService {
-
     private static final AppService NBAPLUS_SERVICE=new AppService();
     private static Gson sGson;
     private static EventBus sBus ;
     private static DBHelper sDBHelper;
     private static NbaplusAPI sNbaplusApi;
     private static NewsDetileAPI sNewsDetileApi;
-//    private static ExecutorService sSingleThreadExecutor;
+    private static ExecutorService sSingleThreadExecutor;
     private Map<Integer,CompositeSubscription> mCompositeSubByTaskId;
     private Handler mIoHandler;
 
@@ -43,7 +42,6 @@ public class AppService {
         sBus = EventBus.getDefault();
         sGson=new Gson();
         mCompositeSubByTaskId=new HashMap<Integer,CompositeSubscription>();
-        //sSingleThreadExecutor= Executors.newSingleThreadExecutor();
         backGroundInit();
     }
 
@@ -148,8 +146,8 @@ public class AppService {
         return sGson;
     }
 
-//    public static ExecutorService getSingleThreadExecutor(){
-//        return sSingleThreadExecutor;
-//    }
+    public static ExecutorService getSingleThreadExecutor(){
+        return sSingleThreadExecutor;
+    }
 
 }
